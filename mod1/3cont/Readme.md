@@ -20,7 +20,7 @@ int sum(int x0, size_t N, int *X)
 
 Обратите внимание на то, что тип int имеет размер 32 бит, а тип size_t - 64 бит.
 
-Problem inf-I-03-2: asm-arm/basics/eqsolution-64
+Problem inf-I-03-2: asm-arm/basics/eqsolution-64 (3.2.S)
 ---
 Реализуйте на языке ассемблера armv8 (AArch64) функцию solve, с прототипом
 ```
