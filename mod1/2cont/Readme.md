@@ -1,11 +1,10 @@
 Problem inf-I-02-0: simulation/alu-sum
 ---
 Реализуйте функцию с прототипом:
-
+```
 #include <stdint.h>
-
 extern void sum(ITYPE first, ITYPE second, ITYPE *res, int *CF);
-    
+``` 
 
 в которой ITYPE - это произвольный беззнаковый целочисленный тип данных с неизвестной разрядностью.
 
@@ -18,11 +17,10 @@ extern void sum(ITYPE first, ITYPE second, ITYPE *res, int *CF);
 Problem inf-I-02-1: simulation/alu-mul
 ---
 Реализуйте функцию с прототипом:
-
+```
 #include <stdint.h>
-
 extern void mul(ITYPE first, ITYPE second, ITYPE *res, int *CF);
-    
+``` 
 
 в которой ITYPE - это произвольный беззнаковый целочисленный тип данных с неизвестной разрядностью.
 
