@@ -1,4 +1,4 @@
-Problem inf-I-02-0: simulation/alu-sum
+Problem inf-I-02-0: simulation/alu-sum (2.0.c)
 ---
 Реализуйте функцию с прототипом:
 ```
@@ -14,7 +14,7 @@ extern void sum(ITYPE first, ITYPE second, ITYPE *res, int *CF);
 
 На сервер необходимо отправить исходный файл, содержащий только реализацию требуемой функции. Для успешной компиляции и тестирования можно использовать следующий ключ компиляции, задающий требуемый тип: -DITYPE=uint64_t.
 
-Problem inf-I-02-1: simulation/alu-mul
+Problem inf-I-02-1: simulation/alu-mul (2.1.c)
 ---
 Реализуйте функцию с прототипом:
 ```
@@ -30,7 +30,7 @@ extern void mul(ITYPE first, ITYPE second, ITYPE *res, int *CF);
 
 На сервер необходимо отправить исходный файл, содержащий только реализацию требуемой функции. Для успешной компиляции и тестирования можно использовать следующий ключ компиляции, задающий требуемый тип: -DITYPE=uint64_t.
 
-Problem inf-I-02-2: generic/ieee754/classify
+Problem inf-I-02-2: generic/ieee754/classify (2.2.c)
 ---
 Реализуйте функцию с прототипом:
 ```
@@ -55,7 +55,7 @@ classify(double *value_ptr);
 
 При решении допускается использовать только побитовые операции, включая сдвиги.
 
-Problem inf-I-02-3: c/ints/bitset-calc
+Problem inf-I-02-3: c/ints/bitset-calc (2.3.c)
 ---
 Реализуйте калькулятор выражений над множествами в обратной польской записи.
 
@@ -76,7 +76,7 @@ Problem inf-I-02-3: c/ints/bitset-calc
 
 Для хранения множеств использовать, суммарно, не более 16 байт памяти.
 
-Problem inf-I-02-4: c/texts/utf8-count-symbols
+Problem inf-I-02-4: c/texts/utf8-count-symbols (2.4.c)
 ---
 На стандартном потоке ввода подается последовательность символов в кодировке UTF-8.
 
