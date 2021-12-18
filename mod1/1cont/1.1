@@ -1,0 +1,54 @@
+#!/bin/bash
+
+devide(){
+	n=$1
+	koef=${arr[$n, $n]}
+	for (( m=0; m<$j; m=m+1 )); do
+		arr[$n, $m]=$(echo "${arr[$n, $m]}/$koef" |bc -l)
+	done
+}
+
+substract(){
+	n=$1
+	declare -a tmp_arr
+	for (( iter=0; iter<$i; iter=iter+1 )); do
+		if (( $iter != $n )); then
+			koef=$(echo "${arr[$iter, $n]}/${arr[$n, $n]}" |bc -l)
+			#echo $koef
+			for (( iter2=0; iter2<$j; iter2=iter2+1 )); do
+				tmp_arr[$iter2]=$(echo "${arr[$n, $iter2]}*$koef *(-1)" |bc -l)
+			done
+			for (( iter4=0; iter4<$j; iter4=iter4+1 )); do
+					arr[$iter, $iter4]=$(echo "${arr[$iter, $iter4]}+${tmp_arr[$iter4]}" |bc)
+			done
+		fi
+	done
+
+}
+
+
+a=`cat $1`
+declare -A arr
+i=$((0))
+j=$((0))
+for string in $a;
+do
+	IFS=,
+	for num in $string;
+	do
+		#echo $j    $num
+		arr[$i, $j]=$num
+		j=$(($j + 1))
+	done
+	i=$(($i + 1))
+	j=$((0))
+done
+j=$(($i + 1))
+for (( k=0; k<$i; k=k+1 )); do
+	devide $k
+	substract $k
+done
+for (( k=0; k<$i; k=k+1 )); do
+	echo ${arr[$k, $(($j - 1))]}
+done
+

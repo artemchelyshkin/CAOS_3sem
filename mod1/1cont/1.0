@@ -1,0 +1,39 @@
+#!/bin/bash
+
+declare -a arr
+i=0
+while read line;
+do
+        arr[$i]=$line
+        i=$i+1
+done
+
+for i in ${arr[@]} ;
+do
+	k=$((0))
+	IFS=:
+	for f in $MANPATH ; do
+		IFS= 
+        	if [[ -e "$f/man3" ]];
+        	then
+              		realpath="$f/man3"
+			for j in `find $realpath -wholename "*\/$i\.3\.gz" -print -or  -wholename "*\/$i\.3" -print` ; do
+				k=$(($k +  1))
+       				if [[ $j =~ .*\.gz ]]; then
+					echo ` zgrep -m1 "#include <.*>" $j | sed 's/.*#include <//' | sed 's/>.*//' `
+					break
+				else
+					echo  ` grep -m1 "#include <.*>" $j | sed 's/.*#include <//' | sed 's/>.*//' `
+					break
+        			fi
+			done
+		fi
+		if [[ $k -eq $((1)) ]];
+		then
+			break
+		fi
+	done
+	if [[ $k -eq $((0)) ]]; then
+	       echo ---
+	fi	       
+done
